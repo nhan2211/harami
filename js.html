@@ -6,16 +6,28 @@
     </head>
     <body>
       <h1 id='tanaka'>JavaScript test</h1>
+     
       
-     <button onclick="aloha()">CLICK ME!</button>
-      
-      <img id="gazo" src="conmeo.jpg">
+      <img id="gazo" src="conmeo.jpg" onclick="aloha()">
       
       <script>
+ // 画像ファイルの番号
+        let num = 0
+          
         function aloha() {
-          // 画像ファイルの、ファイル名を表示する
+          // 画像ファイル名を準備する
+          const files = ['conmeo.jpg', 'inu.jpg', 'ccc.jpg']
+          
+          // 画像のファイル名を、変更する（次のファイル番号に変える）
+          num++
+          // もし、最後の画像だったら、最初（0）に戻る
+          // python: num >= len(files)		      
+          if( num>= files.length){
+             num = 0
+	}
+			      
           let gazo = document.getElementById('gazo')
-          gazo.src = 'inu.jpg'
+          gazo.src = files[num]
         }
       </script>
     </body>
